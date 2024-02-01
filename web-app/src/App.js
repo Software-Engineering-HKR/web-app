@@ -1,12 +1,9 @@
-//import './component/Light';
-import LED from "./component/LED"
-
+import { Home } from "./pages/Home";
 
 function App() {
-  
-   // Return the LED component
    return (
-    <LED />
+    
+    <Home />
   );
 
 }
