@@ -41,3 +41,14 @@
     
 
   } 
+
+
+  /* To change styling when the button changes state*/
+  .button.on {
+    background-color: yellow;
+  }
+  
+  .button-status-label {
+    margin-top: 8px; /* Adjust as needed */
+  }
+  
