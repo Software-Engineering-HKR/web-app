@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 
 
-import { Home } from "./pages/Home";
-import Lightings from "./pages/Lightings";
+import  Home  from "./pages/Home";
+
 
 function App() {
    return (
@@ -11,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={< Home />} />
         <Route path="/home" element={<Home  />} />
-        <Route path="/lightings" element={<Lightings />} />
       </Routes>
     </BrowserRouter>
   );
