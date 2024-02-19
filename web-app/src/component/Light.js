@@ -1,7 +1,7 @@
-
+/*
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../css/Light.css'
+// import '../css/Light.css'
 
 const Light = ({ label, disabled, icon }) => {
     const [ledStatus, setLedStatus] = useState(false);
@@ -41,7 +41,6 @@ const Light = ({ label, disabled, icon }) => {
       }
     };
   
-  
     const handleClick = () => {
       if (ledStatus) {
         setLedStatus(false)
@@ -61,10 +60,11 @@ const Light = ({ label, disabled, icon }) => {
       >
         <span className="button-label">{label}</span>
         {icon && <img src={icon} alt="Icon" className="button-icon" />} 
-        {/* Toggle label below */}
+       
         <div className="button-status-label">{ledStatus ? 'On' : 'Off'}</div>
       </button>
+      
     );
   }
   
-  export default Light;
+  export default Light;*/

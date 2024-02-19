@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import '../css/Sensor.css'
 
 
-const Sensor = ({label ,disabled, icon}) => {
-  const[sensorValue, setSensorValue] = useState(false)
+import Card from 'react-bootstrap/Card';
+
+import { MdOutlineSensors } from "react-icons/md";
+import { FaDotCircle } from "react-icons/fa";
+
+
+const Sensor = ({ label, disabled, icon }) => {
+  const [sensorValue, setSensorValue] = useState(false)
 
   useEffect(() => {
     const websocketUrl = 'ws://localhost:8080'
@@ -31,16 +36,35 @@ const Sensor = ({label ,disabled, icon}) => {
     return () => ws.close();
   }, []);
 
+  /* Fake a on/off Signals*/
+  useEffect(() => {
+    // Simulate sensor value change every 2 minutes (120,000 milliseconds)
+    const intervalId = setInterval(() => {
+      setSensorValue(prevSensorValue => !prevSensorValue); // Toggle sensor value
+    }, 5000); // 120,000 milliseconds = 2 minutes
+
+    
+    return () => clearInterval(intervalId); // Clear the interval on component unmount
+  }, []);
+
   return (
-    <div
+    <Card className={`mb-2 text-center sensor ${sensorValue ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
+      <Card.Body>
+        {sensorValue ? <MdOutlineSensors size={50} className="card-icon-top" /> : <FaDotCircle size={10} className="card-icon-top" />}
+        <Card.Title>{sensorValue ? 'Motion' : 'No motion'}</Card.Title>
+        <Card.Text> {label} </Card.Text>
+      </Card.Body>
+    </Card>
+
+    /*<div
     className={`sensor ${disabled ? 'disabled' : ''} ${sensorValue ? 'on' : ''}`} 
     disabled={disabled}
   >
     <span className="sensor-label">{label}</span>
     {icon && <img src={icon} alt="Icon" className="sensor-icon" />} 
     <div className="sensor-status-label">{sensorValue ? 'Motion' : 'No motion'}</div>
-  </div>
-    )
+  </div>*/
+  )
 }
 
 export default Sensor
