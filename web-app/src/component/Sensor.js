@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-
 import Card from 'react-bootstrap/Card';
-
-import { MdOutlineSensors } from "react-icons/md";
-import { FaDotCircle } from "react-icons/fa";
+import SmartIcons from './SmartIcons';
 
 
-const Sensor = ({ label, disabled, icon }) => {
+const Sensor = ({ label, device, disabled }) => {
   const [sensorValue, setSensorValue] = useState(false)
 
   useEffect(() => {
@@ -50,7 +47,8 @@ const Sensor = ({ label, disabled, icon }) => {
   return (
     <Card className={`mb-2 text-center sensor ${sensorValue ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
       <Card.Body>
-        {sensorValue ? <MdOutlineSensors size={50} className="card-icon-top" /> : <FaDotCircle size={10} className="card-icon-top" />}
+                
+      <SmartIcons device={device} active={sensorValue} />
         <Card.Title>{sensorValue ? 'Motion' : 'No motion'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>

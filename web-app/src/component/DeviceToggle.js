@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ToggleButton from 'react-bootstrap/ToggleButton';
 
-import { PiLampLight, PiLampFill } from "react-icons/pi"; // Import Icons
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import SmartIcons from './SmartIcons';
 
 function DeviceToggle({ label, device, disabled }) {
     const [checked, setChecked] = useState(false);
@@ -67,7 +67,7 @@ function DeviceToggle({ label, device, disabled }) {
             >
                 <div className="device-content">
                     <span className="button-label">{label}</span>                
-                    {checked ? <PiLampFill size={50} color="white" /> : <PiLampLight size={50} color="black" />} 
+                    <SmartIcons device={device} active={checked} />
                     <span className="button-status-label">{checked ? 'On' : 'Off'}</span>
                 </div>
 

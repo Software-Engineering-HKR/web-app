@@ -30,7 +30,7 @@ export const Home = () => {
                 <Toggle label={"Yellow LED"} device="yellowLed" />
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Door"} device="door" disabled={true} />
+                <Toggle label={"Door"} device="door" />
               </Col>
             </Row>
             <Row>
@@ -49,10 +49,10 @@ export const Home = () => {
           <Col sm={6} md={6}>
             <Row>
               <Col sm={12} md={6}>
-                <Sensor label={"Motion Sensor"} icon={sensorIcon} />
+                <Sensor label={"Motion Sensor"} device="motionSensor" icon={sensorIcon} />
               </Col>
               <Col sm={12} md={6}>
-                <Sensor label={"Some other sensor"} icon={sensorIcon} />
+                <Sensor label={"Some other sensor"} device="motionSensor" icon={sensorIcon} />
               </Col>
             </Row>
           </Col>
