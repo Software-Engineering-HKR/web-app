@@ -25,7 +25,7 @@ const Sensor = ({ label, device, disabled }) => {
         console.error('Error parsing JSON:', error);
       }
     };
-    setSensorValue(true)
+    //setSensorValue(true)
     ws.onerror = (error) => {
       console.error('WebSocket error:', error);
     };
