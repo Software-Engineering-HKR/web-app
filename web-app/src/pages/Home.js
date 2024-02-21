@@ -7,6 +7,8 @@ import Header from '../component/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useEffect, useState } from 'react';
+
 
 //const lightIcon = require('../assets/light-icon.png');
 //const homeIcon = require('../assets/home-icon.png');
@@ -14,6 +16,40 @@ const sensorIcon = require('../assets/sensor-icon.png');
 
 
 export const Home = () => {
+
+  const [states, setStates] = useState({
+    light: 0,
+    gas: 0,
+    led: false,
+    fan: false,
+    window: false,
+    door: false,
+    motion: false
+  });
+
+    const updateStates = (newStates) => {
+      setStates(newStates);
+    };
+
+
+  useEffect(() => {
+    const webSocket = new WebSocket('ws://localhost:8080');
+    webSocket.onopen = () => {
+      console.log('WebSocket connected');
+    };
+    webSocket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      updateStates(data);
+    };
+    webSocket.onclose = () => {
+      console.log('WebSocket disconnected');
+    };
+
+    return () => {
+      webSocket.close();
+    };
+  }, []);
+
 
   return (
     <>
@@ -24,24 +60,24 @@ export const Home = () => {
           <Col sm={6} md={6}>
             <Row>
               <Col sm={4} md={4} >
-                <Toggle label={"White LED"} device="whiteLed" />
+                <Toggle label={"White LED"} device="whiteLed" value={states.led} />
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Yellow LED"} device="yellowLed" />
+                <Toggle label={"Yellow LED"} device="yellowLed" value={states.light}/>
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Door"} device="door" />
+                <Toggle label={"Door"} device="door" value={states.door}/>
               </Col>
             </Row>
             <Row>
               <Col sm={4} md={4}>
-                <Toggle label={"Window"} device="window" disabled={true} />
+                <Toggle label={"Window"} device="window" disabled={true} value={states.window}/>
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Fan"} device="fan" disabled={true} />
+                <Toggle label={"Fan"} device="fan" disabled={true} value={states.window}/>
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Other"} device="other" disabled={true} />
+                <Toggle label={"Other"} device="other" disabled={true} value={false}/>
               </Col>
             </Row>
           </Col>
@@ -49,10 +85,10 @@ export const Home = () => {
           <Col sm={6} md={6}>
             <Row>
               <Col sm={12} md={6}>
-                <Sensor label={"Motion Sensor"} device="motionSensor" icon={sensorIcon} />
+                <Sensor label={"Motion Sensor"} device="motionSensor" icon={sensorIcon} value={states.motion}/>
               </Col>
               <Col sm={12} md={6}>
-                <Sensor label={"Some other sensor"} device="motionSensor" icon={sensorIcon} />
+                <Sensor label={"Some other sensor"} device="motionSensor" icon={sensorIcon} value={true}/>
               </Col>
             </Row>
           </Col>
