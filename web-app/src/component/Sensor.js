@@ -15,11 +15,11 @@ const Sensor = ({ label, device, disabled }) => {
   }, [sensors])
 
   return (
-    <Card className={`mb-2 text-center sensor ${value ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
+    <Card className={`mb-2 text-center sensor ${sensorValue ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
       <Card.Body>
                 
-      <SmartIcons device={device} active={value} />
-        <Card.Title>{value ? 'Motion' : 'No motion'}</Card.Title>
+      <SmartIcons device={device} active={sensorValue} />
+        <Card.Title>{sensorValue ? 'Motion' : 'No motion'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>
     </Card>
