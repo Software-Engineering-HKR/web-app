@@ -5,7 +5,6 @@ import { SensorProvider } from './context/GlobalState';
 
 import Home from "./pages/Home";
 
-
 function App() {
   return (
     <SensorProvider>
