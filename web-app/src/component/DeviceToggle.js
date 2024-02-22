@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import SmartIcons from './SmartIcons';
+import { SensorContext } from '../context/GlobalState';
 
 function DeviceToggle({ label, device, disabled }) {
     const [checked, setChecked] = useState(false);
+    const { sensors } = useContext(SensorContext)
+
 
     useEffect(() => {
-        const websocketUrl = 'ws://localhost:8080'
-        const ws = new WebSocket(websocketUrl);
-
-        ws.onopen = () => {
-            console.log('Connected to the WebSocket server');
-        };
-
-        ws.onmessage = (event) => {
-            try {
-                const data = JSON.parse(event.data);
-                if (data.led !== undefined) {
-                    setChecked(data.led ? true : false);
-                }
-            } catch (error) {
-                console.error('Error parsing JSON:', error);
-            }
-        };
-
-        ws.onerror = (error) => {
-            console.error('WebSocket error:', error);
-        };
-
-        return () => ws.close();
-    }, []);
-
+        setChecked(sensors[device])
+    }, [sensors])
 
     const sendDeviceCommand = async (device, command) => {
         try {
@@ -41,15 +21,6 @@ function DeviceToggle({ label, device, disabled }) {
             console.error('Error sending device command:', error);
         }
     };
-
-    /* Listens to when checked is changed*/
-    useEffect(() => {
-        console.log('Checked state changed to:', checked);
-
-        const command = checked ? '1' : '0';
-        sendDeviceCommand('led', command);
-
-    }, [checked, device]);
 
     return (
         <>
@@ -61,12 +32,13 @@ function DeviceToggle({ label, device, disabled }) {
                 checked={checked} // says if the radio button is off/on
                 value={checked ? 'On' : 'Off'} // The value submitted with the form will be 'On' or 'Off'
                 onChange={(e) => {
-                    setChecked(e.currentTarget.checked); // Changes the checked state
+                    setChecked(!checked); // Changes the checked state
+                    sendDeviceCommand(device, checked ? '0' : '1')
                 }}
                 disabled={disabled}
             >
                 <div className="device-content">
-                    <span className="button-label">{label}</span>                
+                    <span className="button-label">{label}</span>
                     <SmartIcons device={device} active={checked} />
                     <span className="button-status-label">{checked ? 'On' : 'Off'}</span>
                 </div>

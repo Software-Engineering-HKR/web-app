@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/deviceToggle.css';
-import './css/sensor.css';
+import './css/Sensor.css';
 import './css/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

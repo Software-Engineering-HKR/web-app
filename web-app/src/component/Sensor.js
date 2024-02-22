@@ -1,48 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import Card from 'react-bootstrap/Card';
 import SmartIcons from './SmartIcons';
+import { SensorContext } from '../context/GlobalState';
 
 
 const Sensor = ({ label, device, disabled }) => {
   const [sensorValue, setSensorValue] = useState(false)
+  const { sensors } = useContext(SensorContext)
 
   useEffect(() => {
-    const websocketUrl = 'ws://localhost:8080'
-    const ws = new WebSocket(websocketUrl);
-
-    ws.onopen = () => {
-      console.log('Connected to the WebSocket server');
-    };
-
-    ws.onmessage = (event) => {
-      try {
-        const data = JSON.parse(event.data);
-        if (data.motionSensor !== undefined) {
-          setSensorValue(data.motionSensor ? true : false);
-        }
-      } catch (error) {
-        console.error('Error parsing JSON:', error);
-      }
-    };
-    setSensorValue(true)
-    ws.onerror = (error) => {
-      console.error('WebSocket error:', error);
-    };
-
-    return () => ws.close();
-  }, []);
-
-  /* Fake a on/off Signals*/
-  useEffect(() => {
-    // Simulate sensor value change every 2 minutes (120,000 milliseconds)
-    const intervalId = setInterval(() => {
-      setSensorValue(prevSensorValue => !prevSensorValue); // Toggle sensor value
-    }, 5000); // 120,000 milliseconds = 2 minutes
-
-    
-    return () => clearInterval(intervalId); // Clear the interval on component unmount
-  }, []);
+    setSensorValue(sensors[device])
+    console.log("data:", device)
+  }, [sensors])
 
   return (
     <Card className={`mb-2 text-center sensor ${sensorValue ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
