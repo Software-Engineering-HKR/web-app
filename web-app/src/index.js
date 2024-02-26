@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/deviceToggle.css';
-import './css/Sensor.css';
+import './css/sensor.css';
 import './css/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
