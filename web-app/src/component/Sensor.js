@@ -19,7 +19,7 @@ const Sensor = ({ label, device, disabled }) => {
       <Card.Body>
                 
       <SmartIcons device={device} active={sensorValue} />
-        <Card.Title>{sensorValue ? 'Motion' : 'No motion'}</Card.Title>
+        <Card.Title>{sensorValue ? 'ON' : 'OFF'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>
     </Card>
