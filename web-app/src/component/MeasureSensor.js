@@ -5,15 +5,15 @@ import SmartIcons from './SmartIcons';
 import { SensorContext } from '../context/GlobalState';
 
 
-const Sensor = ({ label, device, disabled }) => {
-  const [sensorValue, setSensorValue] = useState(true)
+const MeasureSensor = ({ label, device, disabled }) => {
+  const [sensorValue, setSensorValue] = useState(0)
   const { sensors } = useContext(SensorContext)
 
   useEffect(() => {
     const deviceInital = async ()=>{
         const initialData = sensors
         const deviceName =  initialData.find(d => d.name === device)
-        const deviceStatus = deviceName.status
+        const deviceStatus = deviceName.value
         setSensorValue(deviceStatus)
     }
     deviceInital()
@@ -24,11 +24,11 @@ const Sensor = ({ label, device, disabled }) => {
       <Card.Body>
                 
       <SmartIcons device={device} active={sensorValue} />
-        <Card.Title>{sensorValue ? 'ON' : 'OFF'}</Card.Title>
+        <Card.Title>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>
     </Card>
   )
 }
 
-export default Sensor
+export default MeasureSensor

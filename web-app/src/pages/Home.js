@@ -7,6 +7,7 @@ import Header from '../component/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import MeasureSensor from '../component/MeasureSensor';
 
 
 //const lightIcon = require('../assets/light-icon.png');
@@ -42,7 +43,6 @@ export const Home = () => {
                 <Toggle label={"Fan"} device="fan"  />
               </Col>
               <Col sm={4} md={4}>
-                <Toggle label={"Other"} device="other"  />
               </Col>
             </Row>
           </Col>
@@ -54,6 +54,9 @@ export const Home = () => {
               </Col>
               <Col sm={12} md={6}>
                 <Sensor label={"Some other sensor"} device="motion" icon={sensorIcon} />
+              </Col>
+              <Col sm={12} md={6}>
+                <MeasureSensor label={"Moisture Sensor"} device="moistureSensorValue " icon={sensorIcon} />
               </Col>
             </Row>
           </Col>

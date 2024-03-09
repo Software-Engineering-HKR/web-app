@@ -9,12 +9,16 @@ function DeviceToggle({ label, device, disabled }) {
     const [checked, setChecked] = useState(false);
     const { sensors } = useContext(SensorContext)
 
-
     useEffect(() => {
-        setChecked(sensors[device])
-    }, [sensors])
+        const deviceInital =async  ()=>{
+            const initialData =  sensors
+            const deviceName = initialData.find(d => d.name ===device)
+            const deviceStatus = deviceName.status
+            setChecked(deviceStatus)
+        }
+        deviceInital()
+    }, [device, sensors])
 
-  
     const sendDeviceCommand = async (device, command) => {
       try {
         await axios.post(`http://localhost:5000/api/${device}`, { command });
@@ -33,8 +37,9 @@ function DeviceToggle({ label, device, disabled }) {
                 checked={checked} // says if the radio button is off/on
                 value={checked ? 'On' : 'Off'} // The value submitted with the form will be 'On' or 'Off'
                 onChange={(e) => {
-                    setChecked(!checked); // Changes the checked state
                     sendDeviceCommand(device, checked ? '0' : '1')
+                    setChecked(!checked); // Changes the checked state
+                    
                 }}
                 disabled={disabled}
                 

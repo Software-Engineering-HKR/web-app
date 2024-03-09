@@ -15,9 +15,15 @@ export const SensorProvider = ({ children }) => {
 
     ws.onmessage = (event) => {
       try {
-        const data = JSON.parse(event.data);
-        console.log(data)
-        setSensors(data);
+        const rawData = JSON.parse(event.data);
+        // Merge devices and sensors arrays into a single array
+        const mergedData = [...rawData.devices, ...rawData.sensors]
+          // Filter out the _id field from each element
+          .map(item => {
+            const { _id, ...rest } = item;
+            return rest;
+          });
+        setSensors(mergedData);
       } catch (error) {
         console.error('Error parsing JSON:', error);
       }
@@ -31,8 +37,13 @@ export const SensorProvider = ({ children }) => {
     return () => {
       ws.close();
       console.log('Disconnected from the WebSocket server');
+
     };
   }, []);
+
+  //console.log(sensors)
+
+
 
 
   return (
