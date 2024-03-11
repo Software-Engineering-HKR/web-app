@@ -12,7 +12,9 @@ const MeasureSensor = ({ label, device, disabled }) => {
   useEffect(() => {
     const deviceInital = async ()=>{
         const initialData = sensors
+        console.log("sensors:" , initialData)
         const deviceName =  initialData.find(d => d.name === device)
+        console.log(deviceName)
         const deviceStatus = deviceName.value
         setSensorValue(deviceStatus)
     }

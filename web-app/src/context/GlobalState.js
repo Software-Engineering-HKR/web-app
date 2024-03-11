@@ -24,6 +24,7 @@ export const SensorProvider = ({ children }) => {
             return rest;
           });
         setSensors(mergedData);
+        console.log(mergedData)
       } catch (error) {
         console.error('Error parsing JSON:', error);
       }
