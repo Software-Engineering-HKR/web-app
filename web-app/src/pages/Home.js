@@ -53,9 +53,6 @@ export const Home = () => {
                 <Sensor label={"Motion Sensor"} device="motion" icon={sensorIcon} />
               </Col>
               <Col sm={12} md={6}>
-                <Sensor label={"Some other sensor"} device="motion" icon={sensorIcon} />
-              </Col>
-              <Col sm={12} md={6}>
                 <MeasureSensor label={"Moisture Sensor"} device="moisture" icon={sensorIcon} />
               </Col>
             </Row>

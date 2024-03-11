@@ -14,9 +14,10 @@ const Sensor = ({ label, device, disabled }) => {
     
     const deviceInital = async ()=>{
         const initialData = sensors
-        const deviceName =  initialData.find(d => d.name === device)
-        const deviceStatus = deviceName.status
-        setSensorValue(deviceStatus)
+        const name =  initialData.find(d => d.name === device)
+        const value = name.value
+        console.log("value", device, value)
+        setSensorValue(value)
     }
     deviceInital()
 }, [device, sensors])
@@ -26,7 +27,7 @@ const Sensor = ({ label, device, disabled }) => {
       <Card.Body>
                 
       <SmartIcons device={device} active={sensorValue} />
-        <Card.Title>{sensorValue ? 'ON' : 'OFF'}</Card.Title>
+        <Card.Title>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>
     </Card>
