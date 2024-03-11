@@ -7,7 +7,6 @@ import Header from '../component/Header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import MeasureSensor from '../component/MeasureSensor';
 
 
 //const lightIcon = require('../assets/light-icon.png');
