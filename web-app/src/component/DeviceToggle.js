@@ -10,6 +10,8 @@ function DeviceToggle({ label, device, disabled }) {
     const { sensors } = useContext(SensorContext)
 
     useEffect(() => {
+        if (sensors.length === 0) return;
+        
         const deviceInital =async  ()=>{
             const initialData =  sensors
             const deviceName = initialData.find(d => d.name ===device)
