@@ -10,22 +10,19 @@ const MeasureSensor = ({ label, device, disabled }) => {
   const { sensors } = useContext(SensorContext)
 
   useEffect(() => {
-    const deviceInital = async ()=>{
-        const initialData = sensors
-        console.log("sensors:" , initialData)
-        const deviceName =  initialData.find(d => d.name === device)
-        console.log(deviceName)
-        const deviceStatus = deviceName.value
-        setSensorValue(deviceStatus)
+    const deviceInital = async () => {
+      const initialData = sensors
+      const deviceStatus = initialData.find(d => d.name === device)?.value ?? 0;
+      setSensorValue(deviceStatus);
     }
     deviceInital()
-}, [device, sensors])
+  }, [device, sensors])
 
   return (
     <Card className={`mb-2 text-center sensor ${sensorValue ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
       <Card.Body>
-                
-      <SmartIcons device={device} active={sensorValue} />
+
+        <SmartIcons device={device} active={sensorValue} />
         <Card.Title>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
         <Card.Text> {label} </Card.Text>
       </Card.Body>

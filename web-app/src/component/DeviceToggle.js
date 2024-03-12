@@ -12,8 +12,7 @@ function DeviceToggle({ label, device, disabled }) {
     useEffect(() => {
         const deviceInital =async  ()=>{
             const initialData =  sensors
-            const deviceName = initialData.find(d => d.name ===device)
-            const deviceStatus = deviceName.status
+            const deviceStatus = initialData.find(d => d.name === device)?.status ?? 0;
             setChecked(deviceStatus)
         }
         deviceInital()
