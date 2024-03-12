@@ -12,7 +12,7 @@ function SmartIcons({ device, active }) {
         case "led":
             IconComponent = active ? <PiLampFill size={50} color="white" /> : <PiLampDuotone size={50} color="black" />;
             break;
-        case "yellowLed":
+        case "yellow-led":
             IconComponent = active ? <PiLampFill size={50} color="yellow" /> : <PiLampDuotone size={50} color="#D0A103" />;
             break;
         case "door":
