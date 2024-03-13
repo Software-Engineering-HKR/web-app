@@ -2,3 +2,7 @@
     background-color: #0D6EFD;
     color: white;
   }
+
+  .sensor-value {
+    font-size: 50px; /* Example: Change this value to your desired font size */
+  }
