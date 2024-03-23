@@ -4,6 +4,7 @@ export const SensorContext = createContext();
 
 export const SensorProvider = ({ children }) => {
   const [sensors, setSensors] = useState([]);
+  const [lcd, setLcd] = useState([]);
 
   useEffect(() => {
     const websocketUrl = 'ws://localhost:8080';
@@ -24,6 +25,7 @@ export const SensorProvider = ({ children }) => {
             return rest;
           });
         setSensors(mergedData);
+        setLcd(rawData.lcd)
         console.log(mergedData)
       } catch (error) {
         console.error('Error parsing JSON:', error);
@@ -49,7 +51,8 @@ export const SensorProvider = ({ children }) => {
 
   return (
     <SensorContext.Provider value={{
-      sensors
+      sensors,
+      lcd
     }}>
       {children}
     </SensorContext.Provider>

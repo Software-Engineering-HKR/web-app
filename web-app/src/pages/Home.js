@@ -1,5 +1,5 @@
-//import Light from '../component/Light';
 import Sensor from '../component/Sensor';
+import Lcd from '../component/Lcd';
 import Toggle from '../component/DeviceToggle';
 import Header from '../component/Header';
 
@@ -44,8 +44,15 @@ export const Home = () => {
               <Col sm={4} md={4}>
               </Col>
             </Row>
+            <Row>
+              <Col sm={8} md={8}>
+                <Lcd label={"Window"} />
+              </Col>
+              <Col sm={4} md={4}>
+              </Col>
+            </Row>
           </Col>
-
+            
           <Col sm={6} md={6}>
             <Row>
               <Col sm={12} md={6}>
@@ -64,6 +71,7 @@ export const Home = () => {
                 <Sensor label={"Steam Sensor"} device="steam" icon={sensorIcon} />
               </Col>
             </Row>
+            
           </Col>
         </Row>
       </Container>
