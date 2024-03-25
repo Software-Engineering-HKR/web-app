@@ -18,42 +18,38 @@ export const Home = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
 
       <Container className="mt-3">
         <Row>
-          <Col sm={6} md={6}>
+          <Col sm={6} md={6} lg={7}>
             <Row>
-              <Col sm={4} md={4} >
+              <Col sm={12} lg={6} >
                 <Toggle label={"White LED"} device="led" />
               </Col>
-              <Col sm={4} md={4}>
+              <Col sm={12} lg={6}>
                 <Toggle label={"Yellow LED"} device="yellow-led" />
               </Col>
-              <Col sm={4} md={4}>
+            </Row>
+            <Row>
+              <Col sm={12} lg={4}>
                 <Toggle label={"Door"} device="door" />
               </Col>
-            </Row>
-            <Row>
-              <Col sm={4} md={4}>
-                <Toggle label={"Window"} device="window"  />
+              <Col sm={12} lg={4}>
+                <Toggle label={"Window"} device="window" />
               </Col>
-              <Col sm={4} md={4}>
-                <Toggle label={"Fan"} device="fan"  />
-              </Col>
-              <Col sm={4} md={4}>
+              <Col sm={12} lg={4}>
+                <Toggle label={"Fan"} device="fan" />
               </Col>
             </Row>
             <Row>
-              <Col sm={8} md={8}>
+              <Col sm={12} md={8}>
                 <Lcd label={"Window"} />
-              </Col>
-              <Col sm={4} md={4}>
               </Col>
             </Row>
           </Col>
-            
-          <Col sm={6} md={6}>
+
+          <Col sm={6} md={6} lg={5}>
             <Row>
               <Col sm={12} md={6}>
                 <Sensor label={"Motion Sensor"} device="motion" icon={sensorIcon} />
@@ -71,7 +67,7 @@ export const Home = () => {
                 <Sensor label={"Steam Sensor"} device="steam" icon={sensorIcon} />
               </Col>
             </Row>
-            
+
           </Col>
         </Row>
       </Container>
