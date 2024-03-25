@@ -42,11 +42,13 @@ export const Home = () => {
                 <Toggle label={"Fan"} device="fan" />
               </Col>
             </Row>
-            <Row>
-              <Col sm={12} md={8}>
-                <Lcd label={"Window"} />
-              </Col>
-            </Row>
+            {
+              /* <Row>
+                <Col sm={12} md={8}>
+                  <Lcd label={"Window"} />
+                </Col>
+              </Row> */
+            }
           </Col>
 
           <Col sm={6} md={6} lg={5}>
