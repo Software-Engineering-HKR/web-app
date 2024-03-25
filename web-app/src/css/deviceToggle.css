@@ -1,6 +1,6 @@
 .device-toggle-button {
   width: 100%;
-  height: auto;
+  height: 100px;
   padding: 10px;
   /* Optional: Add padding for visual space inside the button */
   display: flex;
