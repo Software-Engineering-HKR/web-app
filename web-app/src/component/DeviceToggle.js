@@ -50,7 +50,7 @@ function DeviceToggle({ label, device, disabled }) {
             >
                 <Row className="align-items-center justify-content-between w-100 mx-0">
                     <Col xs={2} md={4} xl={2}>
-                        <SmartIcons className="large-icon" device={device} active={checked} />
+                        <SmartIcons extraClasses="large-icon" device={device} active={checked} />
                     </Col>
                     <Col xs={10} md={8} xl={10}>
                         <Row className="justify-content-end">
