@@ -18,8 +18,8 @@ export const Home = () => {
 
   return (
     <>
+      <span id='Home' />
       <Header />
-
       <Container className="mt-3">
         <Row>
           <Col sm={6} md={6} lg={7}>
@@ -42,13 +42,7 @@ export const Home = () => {
                 <Toggle label={"Fan"} device="fan" />
               </Col>
             </Row>
-            {
-              /* <Row>
-                <Col sm={12} md={8}>
-                  <Lcd label={"Window"} />
-                </Col>
-              </Row> */
-            }
+
           </Col>
 
           <Col sm={6} md={6} lg={5}>
@@ -70,7 +64,22 @@ export const Home = () => {
               </Col>
             </Row>
 
+
+
           </Col>
+        </Row>
+
+        <Row id='Settings' style={{ marginTop: '15rem', marginBottom: '25rem' }}>
+          <Row className="justify-content-md-left" style={{ paddingBottom: '20px' }}>
+            <Col md={8} className="text-left">
+              <h2>Settings</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={12} md={8}>
+              <Lcd label={"Window"} />
+            </Col>
+          </Row>
         </Row>
       </Container>
     </>
