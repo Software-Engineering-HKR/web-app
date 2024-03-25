@@ -1,37 +1,94 @@
-/* Ensure the button fills its container */
 .device-toggle-button {
-    width: 100%; /* Fill width */
-    height: auto; /* Adjust height automatically */
-    padding: 10px; /* Optional: Add padding for visual space inside the button */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px; /* Add bottom margin for spacing between toggle buttons */
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  /* Optional: Add padding for visual space inside the button */
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center;
+}
+
+.device-toggle-name {
+  text-transform: uppercase;
+}
+
+.device-toggle-status {
+  text-transform: uppercase;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 700px) {
+  .device-toggle-name {
+    font-size: 1.2rem;
   }
-  
-  /* Style for the content inside the toggle button for better alignment */
+
+  .device-toggle-status {
+    font-size: 0.8rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .device-toggle-name {
+    font-size: 1.4rem;
+  }
+
+  .device-toggle-status {
+    font-size: 1rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .device-toggle-name {
+    font-size: 1.2rem;
+  }
+
+  .device-toggle-status {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .device-toggle-name {
+    font-size: 1.2rem;
+  }
+
+  .device-toggle-status {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+/* Style for the content inside the toggle button for better alignment
   .device-content {
-    text-align: center; /* Center the text and icons */
+    text-align: center; /* Center the text and icons 
     width: 100%;
-  }
-  
+  }  */
+
+/*
   .button-label,
   .button-status-label {
-    display: block; /* Make labels block to ensure they don't stay inline */
-    width: 100%; /* Use the full width for text */
+    display: block; /* Make labels block to ensure they don't stay inline *
+    width: 100%; /* Use the full width for text 
+  }*/
+
+/* Adjust icon size while keeping them centered 
+  .pi-icon { /* Ensure you add this class to your Pi icons *
+    margin: auto; /* Center the icon horizontally *
+    display: block; /* Treat icon as block level for proper spacing 
   }
-  
-  /* Adjust icon size while keeping them centered */
-  .pi-icon { /* Ensure you add this class to your Pi icons */
-    margin: auto; /* Center the icon horizontally */
-    display: block; /* Treat icon as block level for proper spacing */
-  }
-  
+  */
+
+/*
   .device-toggle-button.disabled {
-    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
-    background-color: #e9ecef; /* Darker background to show it's disabled */
-    color: #6c757d; /* Dimmed text color */
-    border-color: #dee2e6; /* Lighter border */
-  }
- 
-  
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable *s
+    background-color: #e9ecef; /* Darker background to show it's disabled *
+    color: #6c757d; /* Dimmed text color *
+    border-color: #dee2e6; /* Lighter border 
+  }*/
