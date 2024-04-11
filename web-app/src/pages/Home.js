@@ -1,23 +1,23 @@
-import Sensor from '../component/Sensor';
-import Lcd from '../component/Lcd';
-import Toggle from '../component/DeviceToggle';
-import Header from '../component/Header';
+//import Sensor from '../component/Sensor';
+//import Lcd from '../component/Lcd';
+//import Toggle from '../component/DeviceToggle';
+//import Header from '../component/Header';
 
 // Bootstrap Imports
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+//import Container from 'react-bootstrap/Container';
+//import Row from 'react-bootstrap/Row';
+//import Col from 'react-bootstrap/Col';
 
 
 //const lightIcon = require('../assets/light-icon.png');
 //const homeIcon = require('../assets/home-icon.png');
-const sensorIcon = require('../assets/sensor-icon.png');
+//const sensorIcon = require('../assets/sensor-icon.png');
 
 
 export const Home = () => {
 
   return (
-    <>
+    <>{/* <>
       <span id='Home' />
       <Header />
       <Container className="mt-3">
@@ -82,6 +82,9 @@ export const Home = () => {
           </Row>
         </Row>
       </Container>
+    </>
+    */}
+
     </>
   )
 }
