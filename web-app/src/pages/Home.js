@@ -3,6 +3,8 @@
 //import Toggle from '../component/DeviceToggle';
 //import Header from '../component/Header';
 
+import Registration from "../component/Registration";
+
 // Bootstrap Imports
 //import Container from 'react-bootstrap/Container';
 //import Row from 'react-bootstrap/Row';
@@ -84,7 +86,7 @@ export const Home = () => {
       </Container>
     </>
     */}
-
+    <Registration />
     </>
   )
 }
