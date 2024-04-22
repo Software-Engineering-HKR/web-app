@@ -67,7 +67,8 @@ export const Login = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary m-1">Login</button>
+            <button type="button" onClick={() => navigate('/register')} className="btn btn-primary">Register</button>
           </form>
         </div>
       </div>

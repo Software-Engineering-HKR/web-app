@@ -77,6 +77,7 @@ export const Registration = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary">Register</button>
+            <button type="button" onClick={() => navigate('/login')} className="btn btn-primary m-1">Login</button>
           </form>
         </div>
       </div>
