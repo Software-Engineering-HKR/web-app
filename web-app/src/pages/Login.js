@@ -31,13 +31,19 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await login(formData.username, formData.password)
-      localStorage.setItem("user", JSON.stringify(response?.data));
-      setUser(response.data)
-      navigate('/home')
-    } catch (error) {
-      console.error(error)
-    }
+      const response = await login(formData.username, formData.password);
+
+      if (response.status === 200 && response.data) {
+          localStorage.setItem("user", JSON.stringify(response.data)); // Store user data
+          setUser(response.data);
+          navigate('/home');
+      } else {
+          console.error("Login failed: ", response.status, response.statusText);
+          //update ui
+      }
+  } catch (error) {
+      console.error("An error occurred during login:", error);
+  }
 
   };
 

@@ -30,11 +30,18 @@ export const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await register(formData.username, formData.password)
-      navigate('/login')
-    } catch (error) {
-      console.error(error)
-    }
+      const response = await register(formData.username, formData.password);
+
+      if (response.status === 200) {
+          console.log("Registration successful");
+          navigate('/login');
+      } else {
+          console.error("Registration failed: ", response.status, response.statusText);
+          // update ui
+      }
+  } catch (error) {
+      console.error("An error occurred during registration:", error);
+  }
     
   };
 
