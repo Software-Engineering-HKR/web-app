@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 function DeviceToggle({ label, device, disabled }) {
     const [checked, setChecked] = useState(false);
-    const { sensors } = useContext(SensorContext)
+    const { sensors, user } = useContext(SensorContext)
 
     useEffect(() => {
         if (sensors.length === 0) return;
@@ -25,7 +25,7 @@ function DeviceToggle({ label, device, disabled }) {
 
     const sendDeviceCommand = async (device, command) => {
         try {
-            await axios.post(`http://localhost:5000/api/${device}`, { command });
+            await axios.post(`http://localhost:5000/api/${device}`, { command }, {headers: {Authorization: `Bearer ${user.token}`} });
         } catch (error) {
             console.error('Error sending device command:', error);
         }
