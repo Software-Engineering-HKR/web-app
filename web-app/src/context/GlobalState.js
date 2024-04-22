@@ -8,7 +8,7 @@ export const SensorProvider = ({ children }) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
 
   useEffect(() => {
-    const websocketUrl = 'ws://localhost:5000';
+    const websocketUrl = 'ws://localhost:8080';
     const ws = new WebSocket(websocketUrl);
 
     ws.onopen = () => {
