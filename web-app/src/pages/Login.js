@@ -30,10 +30,15 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await login(formData.username, formData.password)
-    localStorage.setItem("user", JSON.stringify(response.data));
-    setUser(response.data)
-    navigate('/home')
+    try {
+      const response = await login(formData.username, formData.password)
+      localStorage.setItem("user", JSON.stringify(response?.data));
+      setUser(response.data)
+      navigate('/home')
+    } catch (error) {
+      console.error(error)
+    }
+
   };
 
 

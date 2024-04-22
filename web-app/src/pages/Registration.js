@@ -29,8 +29,13 @@ export const Registration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await register(formData.username, formData.password)
-    navigate('/login')
+    try {
+      await register(formData.username, formData.password)
+      navigate('/login')
+    } catch (error) {
+      console.error(error)
+    }
+    
   };
 
 
