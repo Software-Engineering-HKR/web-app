@@ -1,25 +1,34 @@
-//import Sensor from '../component/Sensor';
-//import Lcd from '../component/Lcd';
-//import Toggle from '../component/DeviceToggle';
-//import Header from '../component/Header';
+import Sensor from '../component/Sensor';
+import Lcd from '../component/Lcd';
+import Toggle from '../component/DeviceToggle';
+import Header from '../component/Header';
 
-import Registration from "../component/Registration";
+import Registration from "./Registration";
 
 // Bootstrap Imports
-//import Container from 'react-bootstrap/Container';
-//import Row from 'react-bootstrap/Row';
-//import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { useContext, useEffect } from 'react';
+import { SensorContext } from '../context/GlobalState';
+import { useNavigate } from 'react-router-dom';
 
 
-//const lightIcon = require('../assets/light-icon.png');
-//const homeIcon = require('../assets/home-icon.png');
-//const sensorIcon = require('../assets/sensor-icon.png');
+const lightIcon = require('../assets/light-icon.png');
+const homeIcon = require('../assets/home-icon.png');
+const sensorIcon = require('../assets/sensor-icon.png');
 
 
 export const Home = () => {
 
+  const navigate = useNavigate();
+
+
+  const { user, setUser } = useContext(SensorContext)
+  useEffect(() => { if (!user) navigate("/login") }, [user])
+
   return (
-    <>{/* <>
+    <>{<>
       <span id='Home' />
       <Header />
       <Container className="mt-3">
@@ -85,8 +94,7 @@ export const Home = () => {
         </Row>
       </Container>
     </>
-    */}
-    <Registration />
+    }
     </>
   )
 }

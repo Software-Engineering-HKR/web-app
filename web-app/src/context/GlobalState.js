@@ -5,6 +5,7 @@ export const SensorContext = createContext();
 export const SensorProvider = ({ children }) => {
   const [sensors, setSensors] = useState([]);
   const [lcd, setLcd] = useState([]);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
 
   useEffect(() => {
     const websocketUrl = 'ws://localhost:8080';
@@ -52,7 +53,9 @@ export const SensorProvider = ({ children }) => {
   return (
     <SensorContext.Provider value={{
       sensors,
-      lcd
+      lcd,
+      user,
+      setUser
     }}>
       {children}
     </SensorContext.Provider>
