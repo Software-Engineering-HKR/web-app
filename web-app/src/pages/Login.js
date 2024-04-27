@@ -1,52 +1,52 @@
-import React, { useContext, useEffect } from 'react'
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '../api/auth';
 import { useNavigate } from "react-router-dom";
 import { SensorContext } from '../context/GlobalState';
 
-
-
 export const Login = () => {
-
   const navigate = useNavigate();
-  const { user, setUser } = useContext(SensorContext)
+  const { user, setUser } = useContext(SensorContext);
 
-  useEffect(() => { if (user) navigate("/home") }, [user])
-
+  useEffect(() => { 
+    if (user) navigate("/home");
+  }, [user, navigate]);
 
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const response = await login(formData.username, formData.password);
 
       if (response.status === 200 && response.data) {
-          localStorage.setItem("user", JSON.stringify(response.data)); // Store user data
-          setUser(response.data);
-          navigate('/home');
-      } else {
-          console.error("Login failed: ", response.status, response.statusText);
-          //update ui
+        localStorage.setItem("user", JSON.stringify(response.data)); // Store user data
+        setUser(response.data);
+        setSuccessMessage('Login successful! Redirecting...');
+        navigate('/home')
+      } else if (response.status === 404)  {
+        setErrorMessage('Login failed. User not found.');
+      } else if (response.status === 401)  {
+        setErrorMessage('Login failed. Invalid Credentials.');
       }
-  } catch (error) {
-      console.error("An error occurred during login:", error);
-  }
-
+    } catch (error) {
+      setErrorMessage('An error occurred. Please try again later.');
+    }
   };
-
 
   return (
     <div className="container mt-5">
@@ -54,6 +54,8 @@ export const Login = () => {
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
             <h2 className="mb-3">Login</h2>
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+            {successMessage && <div className="alert alert-success">{successMessage}</div>}
             <div className="mb-3">
               <label htmlFor="inputName" className="form-label">Username</label>
               <input
@@ -61,7 +63,7 @@ export const Login = () => {
                 className="form-control"
                 id="inputName"
                 name="username"
-                value={formData.name}
+                value={formData.username}
                 onChange={handleChange}
                 required
               />
@@ -86,4 +88,5 @@ export const Login = () => {
     </div>
   );
 }
+
 export default Login;

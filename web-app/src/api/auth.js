@@ -10,7 +10,7 @@ const login = async (username, password) => {
     )
     return response
   } catch (error) {
-    console.log(error)
+    return error.response
   }
 }
 
@@ -22,7 +22,7 @@ const register = async (username, password) => {
     )
     return response
   } catch (error) {
-    console.log(error)
+    return error.response
   }
 }
 

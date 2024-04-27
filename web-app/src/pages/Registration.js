@@ -19,30 +19,41 @@ export const Registration = () => {
     confirmPassword: ''
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (formData.password !== formData.confirmPassword) {
+      setErrorMessage('Passwords do not match.');
+      return;
+    }
+
     try {
+
       const response = await register(formData.username, formData.password);
+      console.log("status: ", response)
 
       if (response.status === 200) {
-          console.log("Registration successful");
-          navigate('/login');
-      } else {
-          console.error("Registration failed: ", response.status, response.statusText);
-          // update ui
+        setSuccessMessage('Registration successful');
+        setTimeout(() => navigate('/login'), 3000)
+      } else if (response.status === 409) {
+        console.log("hoya")
+        setErrorMessage('User already exists.');
       }
-  } catch (error) {
-      console.error("An error occurred during registration:", error);
-  }
-    
+    } catch (error) {
+      setErrorMessage('An error occurred. Please try again later.');
+    }
+
   };
 
 
@@ -52,6 +63,8 @@ export const Registration = () => {
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
             <h2 className="mb-3">Registration</h2>
+            {errorMessage && !successMessage && <div className="alert alert-danger">{errorMessage}</div>}
+            {successMessage && <div className="alert alert-success">{successMessage}</div>}
             <div className="mb-3">
               <label htmlFor="inputName" className="form-label">Username</label>
               <input
