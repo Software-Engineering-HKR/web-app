@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '../api/auth';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SensorContext } from '../context/GlobalState';
 
 export const Login = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(SensorContext);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (user) navigate("/home");
   }, [user, navigate]);
 
@@ -38,9 +38,9 @@ export const Login = () => {
         setUser(response.data);
         setSuccessMessage('Login successful! Redirecting...');
         navigate('/home')
-      } else if (response.status === 404)  {
+      } else if (response.status === 404) {
         setErrorMessage('Login failed. User not found.');
-      } else if (response.status === 401)  {
+      } else if (response.status === 401) {
         setErrorMessage('Login failed. Invalid Credentials.');
       }
     } catch (error) {
@@ -51,9 +51,9 @@ export const Login = () => {
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
+        <div className="col-md-6 bg-light p-5 rounded shadow"> {/* Increased padding with p-5 */}
           <form onSubmit={handleSubmit}>
-            <h2 className="mb-3">Login</h2>
+            <h2 className="mb-4">Login</h2> {/* Adjusted margin for consistent spacing */}
             {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
             {successMessage && <div className="alert alert-success">{successMessage}</div>}
             <div className="mb-3">
@@ -68,7 +68,7 @@ export const Login = () => {
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="mb-4"> {/* Increased margin for consistent spacing */}
               <label htmlFor="inputPassword" className="form-label">Password</label>
               <input
                 type="password"
@@ -80,13 +80,18 @@ export const Login = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary m-1">Login</button>
-            <button type="button" onClick={() => navigate('/register')} className="btn btn-primary">Register</button>
+            <div className="d-grid gap-2"> {/* This div ensures the button takes full width */}
+              <button type="submit" className="btn btn-primary btn-lg" style={{ backgroundColor: '#004085' }}>Login</button>
+            </div>
+            <p className="mt-4 text-center"> {/* Adjusted margin for consistent spacing */}
+              Don't have an account yet? <Link to="/register" className="text-primary">Sign up</Link>
+            </p>
           </form>
         </div>
       </div>
     </div>
   );
+
 }
 
 export default Login;

@@ -58,11 +58,11 @@ export const Registration = () => {
 
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 mb-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
+        <div className="col-md-6 bg-light p-5 rounded shadow">
           <form onSubmit={handleSubmit}>
-            <h2 className="mb-3">Registration</h2>
+            <h2 className="mb-4">Registration</h2>
             {errorMessage && !successMessage && <div className="alert alert-danger">{errorMessage}</div>}
             {successMessage && <div className="alert alert-success">{successMessage}</div>}
             <div className="mb-3">
@@ -89,7 +89,7 @@ export const Registration = () => {
                 required
               />
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
               <label htmlFor="inputConfirmPassword" className="form-label">Confirm Password</label>
               <input
                 type="password"
@@ -101,8 +101,12 @@ export const Registration = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">Register</button>
-            <button type="button" onClick={() => navigate('/login')} className="btn btn-primary m-1">Login</button>
+            <div className="d-grid gap-2">
+              <button type="submit" className="btn btn-primary btn-lg" style={{ backgroundColor: '#004085' }}>Register</button>
+            </div>
+            <p className="mt-4 text-center">
+              Already have an account? <a href="#" onClick={() => navigate('/login')} className="text-primary">Login</a>
+            </p>
           </form>
         </div>
       </div>
