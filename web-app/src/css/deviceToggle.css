@@ -2,10 +2,12 @@
   width: 100%;
   height: 100px;
   padding: 10px;
-  /* Optional: Add padding for visual space inside the button */
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
+  justify-content: flex-start; 
   align-items: center;
+  border: none; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #F1F2F2;
 }
 
 .device-toggle-name {
