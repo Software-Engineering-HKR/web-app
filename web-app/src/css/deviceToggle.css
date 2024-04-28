@@ -1,6 +1,6 @@
 .device-toggle-button {
   width: 100%;
-  height: 100px;
+  height: 180px;
   padding: 10px;
   display: flex;
   justify-content: flex-start; 
@@ -20,6 +20,10 @@
 
 .device-toggle-status {
   text-transform: uppercase;
+}
+
+.noto-sans {
+  font-family: 'Noto Sans';
 }
 
 /* Small devices (landscape phones, 576px and up) */

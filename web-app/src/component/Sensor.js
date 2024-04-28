@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import Card from 'react-bootstrap/Card';
-// import SmartIcons from './SmartIcons';
 import { SensorContext } from '../context/GlobalState';
+import '../css/Sensor.css'
 
 
-const Sensor = ({ label, device, disabled }) => {
+const Sensor = ({ label, device, disabled, icon }) => {
   const [sensorValue, setSensorValue] = useState(true)
   const { sensors } = useContext(SensorContext)
 
@@ -23,17 +23,19 @@ const Sensor = ({ label, device, disabled }) => {
   }, [device, sensors])
 
   return (
-    <Card className={`mb-2 text-center sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
-      <Card.Body>
-        {/* <SmartIcons device={device} active={sensorValue} /> */}
-        
-        {device === "motion" ?
-          <Card.Title className="sensor-value" >{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
-          : <Card.Title className="sensor-value">{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
-        }
-        <Card.Text> {label} </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className='noto-sans'>
+      <Card  className={`mb-2 text-center border-1 shadow sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
+        <Card.Body>          
+          {device === "motion" ?
+            <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans", fontSize: "20px"}}>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
+            : <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans" , fontSize: "20px"}}>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
+          }
+          <img src={icon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} />
+
+          <Card.Text style={{fontFamily: "Noto-sans" , fontSize: "20px"}}> {label} </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
   )
 }
 
