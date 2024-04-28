@@ -10,6 +10,10 @@
   background-color: #F1F2F2;
 }
 
+.device-toggle-button.checked {
+  background-color: #004F9B; /* Blue color when checked */
+}
+
 .device-toggle-name {
   text-transform: uppercase;
 }

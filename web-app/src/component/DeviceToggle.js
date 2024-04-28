@@ -31,22 +31,30 @@ function DeviceToggle({ label, device, disabled }) {
         }
     };
 
+    const getButtonValue = () => {
+        if (label.toLowerCase() === 'door') {
+            return checked ? 'Open' : 'Closed';
+        } else if (label.toLowerCase() === 'window') {
+            return checked ? 'Open' : 'Closed';
+        }
+        return checked ? 'On' : 'Off';
+    };
+
+
     return (
         <>
             <ToggleButton
-                className={`mb-2 device-toggle-button ${disabled ? 'disabled' : ''}`}
+                className={`mb-2 device-toggle-button ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`}
                 id={`toggle-${device}`} // Ensuring unique ID based on device prop
                 type="checkbox"
                 variant="outline-primary"
                 checked={checked} // says if the radio button is off/on
-                value={checked ? 'On' : 'Off'} // The value submitted with the form will be 'On' or 'Off'
+                value={getButtonValue()} // The value submitted with the form will be 'On' or 'Off'
                 onChange={(e) => {
-                    sendDeviceCommand(device, checked ? '0' : '1')
+                    sendDeviceCommand(device, checked ? '0' : '1');
                     setChecked(!checked); // Changes the checked state
-
                 }}
                 disabled={disabled}
-
             >
                 <Row className="align-items-center justify-content-between w-100 mx-0">
                     <Col xs={2} md={4} xl={2}>
@@ -58,12 +66,11 @@ function DeviceToggle({ label, device, disabled }) {
                                 {label}
                             </Col>
                             <Col xs={12} className="device-toggle-status text-right">
-                                {checked ? 'On' : 'Off'}
+                                {getButtonValue()}
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-                
             </ToggleButton>
         </>
     );
