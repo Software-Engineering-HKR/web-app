@@ -9,7 +9,7 @@ function Header() {
   const { user } = useContext(SensorContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
+    <Navbar expand="lg" className="bg-body-tertiary" sticky="top" style={{ fontFamily: 'Noto Sans, sans-serif' }}>
       <Container>
         <Navbar.Brand href="#home">
           <img src={homeIcon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top" />
