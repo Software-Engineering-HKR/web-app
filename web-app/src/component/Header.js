@@ -17,7 +17,7 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/Home">Home</Nav.Link>
+            <Nav.Link href="/Home">Smart Home</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="/user" className="ml-auto" style={{ border: '1px gray', borderRadius: '10px', backgroundColor: 'white' }}>{user?.username}</Nav.Link> 

@@ -54,6 +54,14 @@ export const Home = () => {
               </Col>
             </Row>
 
+            <Row id='Settings' style={{ marginTop: '2rem', marginBottom: '25rem' }}>
+          <Row>
+            <Col sm={12} md={14}>
+              <Lcd label={"Window"} />
+            </Col>
+          </Row>
+        </Row>
+
           </Col>
 
           <Col sm={6} md={6} lg={5}>
@@ -78,19 +86,6 @@ export const Home = () => {
 
 
           </Col>
-        </Row>
-
-        <Row id='Settings' style={{ marginTop: '15rem', marginBottom: '25rem' }}>
-          <Row className="justify-content-md-left" style={{ paddingBottom: '20px' }}>
-            <Col md={8} className="text-left">
-              <h2>Settings</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={12} md={8}>
-              <Lcd label={"Window"} />
-            </Col>
-          </Row>
         </Row>
       </Container>
     </>

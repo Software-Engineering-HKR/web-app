@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { SensorContext } from '../context/GlobalState';
+
 
 const Lcd = ({ label }) => {
   const [lcdMessage, setLcdMessage] = useState('');
@@ -37,21 +38,28 @@ const Lcd = ({ label }) => {
   };
 
   return (
-    <Card className={`mb-4 text-center lcd`}>
+    <Card className={`mb-4 text-center lcd`} style={{ border: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)', backgroundColor: '#eeeeee' }}>
       <Card.Body>
-        <Card.Text>{lcdMessage}</Card.Text>
+        <Card.Text
+        style={{ fontFamily: 'Noto Sans' }}
+        >{lcdMessage}</Card.Text>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="lcdMessageInput">
-            <Form.Control
-              type="text"
-              placeholder="Enter new message"
-              value={newMessage}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <Row className="align-items-center">
+            <Col xs={9}>
+              <Form.Control
+                type="text"
+                placeholder="Enter new message"
+                value={newMessage}
+                onChange={handleInputChange}
+                style={{ fontFamily: 'Noto Sans' }}
+              />
+            </Col>
+            <Col xs={3}>
+              <Button variant="primary" type="submit" style={{ width: '100%', fontFamily: 'Noto Sans' }}>
+                Apply
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Card.Body>
     </Card>
