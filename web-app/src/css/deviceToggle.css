@@ -10,8 +10,14 @@
   background-color: #F1F2F2;
 }
 
+.device-toggle-button {
+  background-color: #F7F7F7 !important;
+  color: #004F9B;
+}
+
 .device-toggle-button.checked {
-  background-color: #004F9B; /* Blue color when checked */
+  background-color: #004F9B !important;
+  color: #F7F7F7;
 }
 
 .device-toggle-name {
