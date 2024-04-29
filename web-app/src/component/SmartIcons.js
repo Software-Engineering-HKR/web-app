@@ -21,12 +21,23 @@ function SmartIcons({ device, active, extraClasses }) {
             IconComponent = <span className={`material-icons ${extraClasses}`}>&#xec0c;</span>
             break;
         case "motion":
-            IconComponent = <span className={`material-icons ${extraClasses}`}>&#xe51e;</span>
+            IconComponent = <span className={`material-icons ${extraClasses}`} style={{ color: '#004F9B' }}>&#xe51e;</span>
+            break;
+        case "light":
+            IconComponent = <span className={`material-icons ${extraClasses}`} style={{ color: '#004F9B' }}>&#xe3ab;</span>
+            break;
+        case "gas":
+            IconComponent = <span className={`material-icons ${extraClasses}`} style={{ color: '#004F9B' }}>&#xe7b0;</span>
+            break;
+        case "steam":
+            IconComponent = <span className={`material-icons ${extraClasses}`} style={{ color: '#004F9B' }}>&#xefd8;</span>
+            break;
+        case "moisture":
+            IconComponent = <span className={`material-icons ${extraClasses}`} style={{ color: '#004F9B' }}>&#xe798;</span>
             break;
         default:
             IconComponent = <span className={`material-icons ${extraClasses}`}>&#xe5d5;</span>
     }
-
 
     return (
         <>
