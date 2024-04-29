@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import { SensorContext } from '../context/GlobalState';
 import '../css/Sensor.css'
 
+import SmartIcons from './SmartIcons';
+
 
 const Sensor = ({ label, device, disabled, icon }) => {
   const [sensorValue, setSensorValue] = useState(true)
@@ -30,8 +32,10 @@ const Sensor = ({ label, device, disabled, icon }) => {
             <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans", fontSize: "20px"}}>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
             : <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans" , fontSize: "20px"}}>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
           }
-          <img src={icon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} />
+          {/* <img src={icon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} /> */}
 
+          <SmartIcons extraClasses="large-icon" device={device} />
+                   
           <Card.Text style={{fontFamily: "Noto-sans" , fontSize: "20px"}}> {label} </Card.Text>
         </Card.Body>
       </Card>
