@@ -16,6 +16,12 @@ code {
   font-size: 36px; /* Or any other size */
 }
 
+.extra-large-icon {
+  font-size: 50px; /* Or any other size */
+}
+
+
+
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Orienta&display=swap');

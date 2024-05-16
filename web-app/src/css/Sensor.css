@@ -1,9 +1,28 @@
+  .sensor {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    border: none; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #F1F2F2;
+  }
+
   .sensor.on {
     background-color: #0D6EFD;
     color: white;
   }
 
   .sensor-value {
-    font-size: 50px; /* Example: Change this value to your desired font size */
+    text-transform: uppercase;
+    font-weight: bold !important;
+    font-size: 1.5rem !important; 
+  }
+
+  .sensor-lable {
+    text-transform: uppercase;
+    font-size: 0.8rem;
   }
 

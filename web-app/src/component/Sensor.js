@@ -5,6 +5,8 @@ import { SensorContext } from '../context/GlobalState';
 import '../css/Sensor.css'
 
 import SmartIcons from './SmartIcons';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 const Sensor = ({ label, device, disabled, icon }) => {
@@ -26,17 +28,20 @@ const Sensor = ({ label, device, disabled, icon }) => {
 
   return (
     <div>
-      <Card  className={`mb-2 text-center border-1 shadow sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
-        <Card.Body>          
-          {device === "motion" ?
-            <Card.Title className="sensor-value" style={{fontSize: "20px"}}>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
-            : <Card.Title className="sensor-value" style={{fontSize: "20px"}}>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
-          }
-          {/* <img src={icon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} /> */}
-
-          <SmartIcons extraClasses="large-icon" device={device} />
-                   
-          <Card.Text style={{fontSize: "20px"}}> {label} </Card.Text>
+      <Card className={`mb-2 text-center border-1 shadow sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
+        <Card.Body>
+          <Row className="align-items-center justify-content-between w-100 mx-0">
+            <Col xs={2} md={4} xl={4}>
+              <SmartIcons extraClasses="extra-large-icon" device={device} />
+            </Col>
+            <Col xs={10} md={8} xl={8}>
+              {device === "motion" ?
+                <Card.Title className="sensor-value">{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
+                : <Card.Title className="sensor-value">{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
+              }
+              <Card.Text className="sensor-lable">{label}</Card.Text>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </div>
