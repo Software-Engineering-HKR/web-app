@@ -42,7 +42,7 @@ function DeviceToggle({ label, device, disabled }) {
 
 
     return (
-        <div className='noto-sans'>
+        <div>
             <ToggleButton
                 className={`mb-2 device-toggle-button ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`}
                 id={`toggle-${device}`} // Ensuring unique ID based on device prop

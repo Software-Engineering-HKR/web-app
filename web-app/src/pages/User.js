@@ -26,7 +26,7 @@ const User = () => {
             <div className="card-body text-center">
               <h5 className="card-title ">Profile</h5>
               <p className="card-text">Username: {user?.username}</p>
-              <button className="btn btn-danger" onClick={handleLogout} style={{ fontFamily: "Noto-sans", fontSize: "20px" }}>Logout</button> {/* Apply inline styles */}
+              <button className="btn btn-danger" onClick={handleLogout} style={{ fontSize: "20px" }}>Logout</button> {/* Apply inline styles */}
             </div>
           </div>
         </div>

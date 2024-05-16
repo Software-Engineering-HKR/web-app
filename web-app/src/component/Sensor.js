@@ -25,18 +25,18 @@ const Sensor = ({ label, device, disabled, icon }) => {
   }, [device, sensors])
 
   return (
-    <div className='noto-sans'>
+    <div>
       <Card  className={`mb-2 text-center border-1 shadow sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
         <Card.Body>          
           {device === "motion" ?
-            <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans", fontSize: "20px"}}>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
-            : <Card.Title className="sensor-value" style={{fontFamily: "Noto-sans" , fontSize: "20px"}}>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
+            <Card.Title className="sensor-value" style={{fontSize: "20px"}}>{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
+            : <Card.Title className="sensor-value" style={{fontSize: "20px"}}>{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
           }
           {/* <img src={icon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} /> */}
 
           <SmartIcons extraClasses="large-icon" device={device} />
                    
-          <Card.Text style={{fontFamily: "Noto-sans" , fontSize: "20px"}}> {label} </Card.Text>
+          <Card.Text style={{fontSize: "20px"}}> {label} </Card.Text>
         </Card.Body>
       </Card>
     </div>
