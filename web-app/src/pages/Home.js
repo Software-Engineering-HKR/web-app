@@ -29,6 +29,7 @@ export const Home = () => {
       <Container className="mt-3">
         <Row>
           <Col sm={6} md={6} lg={6}>
+          <h2>Devices</h2>
             <Row>
               <Col sm={12} lg={6} >
                 <Toggle label={"White LED"} device="led" />
@@ -51,6 +52,7 @@ export const Home = () => {
           </Col>
 
           <Col sm={6} md={6} lg={6}>
+          <h2>Sensors</h2>
             <Row>
               <Col sm={12} lg={6}>
                 <Sensor label={"Motion"} device="motion" />
@@ -70,8 +72,9 @@ export const Home = () => {
             </Row>
           </Col>
 
-          <Row id='Settings' style={{ marginTop: 'auto', marginBottom: '25rem' }}>
-            <Col sm={12} md={7}>
+          <Row style={{ marginTop: '1rem'}}>
+            <Col sm={12} lg={6}>
+              <h2>LCD Display</h2>
               <Lcd label={"LCD"} />
             </Col>
           </Row>
