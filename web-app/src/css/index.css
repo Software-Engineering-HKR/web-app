@@ -13,14 +13,12 @@ code {
 }
 
 .large-icon {
-  font-size: 36px; /* Or any other size */
+  font-size: 36px;
 }
 
 .extra-large-icon {
-  font-size: 50px; /* Or any other size */
+  font-size: 50px;
 }
-
-
 
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
