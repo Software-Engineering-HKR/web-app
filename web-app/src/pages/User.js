@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { SensorContext } from '../context/GlobalState'
 import { useNavigate } from "react-router-dom";
 import Header from '../component/Header';
-import '../css/Profile.css';
+import '../css/profile.css';
 
 
 

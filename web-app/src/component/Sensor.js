@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import Card from 'react-bootstrap/Card';
 import { SensorContext } from '../context/GlobalState';
-import '../css/Sensor.css'
+import '../css/sensor.css';
 
 import SmartIcons from './SmartIcons';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 
 const Sensor = ({ label, device, disabled, icon }) => {
   const [sensorValue, setSensorValue] = useState(true)
