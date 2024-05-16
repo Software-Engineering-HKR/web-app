@@ -14,18 +14,6 @@ import { SensorContext } from '../context/GlobalState';
 import { useNavigate } from 'react-router-dom';
 
 
-const lightIcon = require('../assets/light-icon.png');
-const homeIcon = require('../assets/home-icon.png');
-const motionIcon = require('../assets/motion.png');
-const gasIcon = require('../assets/gas.png');
-const moistureIcon = require('../assets/moisture.png');
-const steamIcon = require('../assets/steam.png');
-const lightIco = require('../assets/light.png');
-
-
-
-
-
 export const Home = () => {
 
   const navigate = useNavigate();
@@ -65,19 +53,19 @@ export const Home = () => {
           <Col sm={6} md={6} lg={6}>
             <Row>
               <Col sm={12} lg={6}>
-                <Sensor label={"Motion"} device="motion" icon={motionIcon} />
+                <Sensor label={"Motion"} device="motion" />
               </Col>
               <Col sm={12} lg={6}>
-                <Sensor label={"Gas"} device="gas" icon={gasIcon} />
+                <Sensor label={"Gas"} device="gas" />
               </Col>
               <Col sm={12} lg={6}>
-                <Sensor label={"Moisture"} device="moisture" icon={moistureIcon} />
+                <Sensor label={"Moisture"} device="moisture" />
               </Col>
               <Col sm={12} lg={6}>
-                <Sensor label={"Light"} device="light" icon={lightIco} />
+                <Sensor label={"Light"} device="light" />
               </Col>
               <Col sm={12} lg={6}>
-                <Sensor label={"Steam"} device="steam" icon={steamIcon} />
+                <Sensor label={"Steam"} device="steam" />
               </Col>
             </Row>
           </Col>
@@ -86,7 +74,7 @@ export const Home = () => {
             <Col sm={12} md={7}>
               <Lcd label={"LCD"} />
             </Col>
-        </Row>
+          </Row>
 
         </Row>
       </Container>
