@@ -1,6 +1,6 @@
 .device-toggle-button {
   width: 100%;
-  height: 150px;
+  height: 100px;
   padding: 10px;
   display: flex;
   justify-content: flex-start; 
@@ -43,7 +43,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .device-toggle-name {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .device-toggle-status {
@@ -54,7 +54,7 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .device-toggle-name {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .device-toggle-status {
@@ -65,10 +65,10 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .device-toggle-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .device-toggle-status {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }

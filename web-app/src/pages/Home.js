@@ -40,7 +40,7 @@ export const Home = () => {
       <Header />
       <Container className="mt-3">
         <Row>
-          <Col sm={6} md={6} lg={7}>
+          <Col sm={6} md={6} lg={6}>
             <Row>
               <Col sm={12} lg={6} >
                 <Toggle label={"White LED"} device="led" />
@@ -62,22 +62,22 @@ export const Home = () => {
             </Row>
           </Col>
 
-          <Col sm={6} md={6} lg={5}>
+          <Col sm={6} md={6} lg={6}>
             <Row>
-              <Col sm={12} md={6}>
-                <Sensor label={"Motion Sensor"} device="motion" icon={motionIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Motion"} device="motion" icon={motionIcon} />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Gas Sensor"} device="gas" icon={gasIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Gas"} device="gas" icon={gasIcon} />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Moisture Sensor"} device="moisture" icon={moistureIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Moisture"} device="moisture" icon={moistureIcon} />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Light Sensor"} device="light" icon={lightIco} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Light"} device="light" icon={lightIco} />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Steam Sensor"} device="steam" icon={steamIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Steam"} device="steam" icon={steamIcon} />
               </Col>
             </Row>
           </Col>
