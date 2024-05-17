@@ -11,7 +11,7 @@ function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" sticky="top" style={{ fontSize: "20px" }}>
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/home">
           <img
             src={homeIcon}
             alt="Home Icon"
@@ -22,7 +22,7 @@ function Header() {
           />
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/Home">Smart Home</Nav.Link>
+          <Nav.Link href="/home">Smart Home</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
           <Nav.Link href="/user" className="username-nav-link">

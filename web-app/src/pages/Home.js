@@ -24,7 +24,6 @@ export const Home = () => {
 
   return (
     <>{<>
-      <span id='Home' />
       <Header />
       <Container className="mt-3">
         <Row>
