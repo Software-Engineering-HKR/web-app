@@ -7,7 +7,7 @@ import { SensorContext } from '../context/GlobalState';
 const Lcd = ({ label }) => {
   const [lcdMessage, setLcdMessage] = useState('');
   const [newMessage, setNewMessage] = useState('');
-  const { lcd } = useContext(SensorContext);
+  const { lcd, user } = useContext(SensorContext);
 
   const handleInputChange = (event) => {
     setNewMessage(event.target.value);
@@ -29,7 +29,7 @@ const Lcd = ({ label }) => {
     event.preventDefault();
     try {
       console.log(newMessage);
-      await axios.post(`http://localhost:5000/api/LCD`, { message: newMessage });
+      await axios.post(`http://localhost:5000/api/LCD`, { message: newMessage }, {headers: {Authorization: `Bearer ${user.token}`} });
       setLcdMessage(newMessage);
     } catch (error) {
       console.error('Error sending new text:', error);
