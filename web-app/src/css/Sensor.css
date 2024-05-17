@@ -11,8 +11,7 @@
   }
 
   .sensor.on {
-    background-color: #0D6EFD;
-    color: white;
+    background-color: #FDDC71;
   }
 
   .sensor-value {
