@@ -38,10 +38,10 @@ const Lcd = ({ label }) => {
   };
 
   return (
-    <Card className={`mb-4 text-center lcd`} style={{ border: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)', backgroundColor: '#eeeeee', fontFamily: 'Noto Sans'}}>
+    <Card className={`mb-4 text-center lcd`} style={{ border: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)', backgroundColor: '#eeeeee'}}>
       <Card.Body>
         <Card.Text
-        style={{ fontFamily: 'Noto Sans', fontSize: "20px" }}
+        style={{fontSize: "20px" }}
         >{lcdMessage}</Card.Text>
         <Form onSubmit={handleSubmit}>
           <Row className="align-items-center">
@@ -51,11 +51,10 @@ const Lcd = ({ label }) => {
                 placeholder="Enter new message"
                 value={newMessage}
                 onChange={handleInputChange}
-                style={{ fontFamily: 'Noto Sans' }}
               />
             </Col>
             <Col xs={3}>
-              <Button variant="primary" type="submit" style={{ width: '100%', fontFamily: 'Noto Sans' }}>
+              <Button variant="primary" type="submit" style={{ width: '100%' }}>
                 Apply
               </Button>
             </Col>

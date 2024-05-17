@@ -9,23 +9,31 @@ function Header() {
   const { user } = useContext(SensorContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" sticky="top" style={{ fontFamily: 'Noto Sans', fontSize: "20px" }}>
+    <Navbar expand="lg" className="bg-body-tertiary" sticky="top" style={{ fontSize: "20px" }}>
       <Container>
         <Navbar.Brand href="#home">
-        <img src={homeIcon} alt="Home Icon" width="30" height="30" className="d-inline-block align-top rounded-circle" style={{ marginRight: '10px' }} />
+          <img
+            src={homeIcon}
+            alt="Home Icon"
+            width="30"
+            height="30"
+            className="d-inline-block align-top rounded-circle"
+            style={{ marginRight: '10px' }}
+          />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/Home">Smart Home</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="/user" className="ml-auto" style={{ border: '1px gray', borderRadius: '10px', backgroundColor: 'white' }}>{user?.username}</Nav.Link> 
-            <Nav.Link href="/user" className="ml-auto"  style={{ color: 'red' }}>{"Log out"}</Nav.Link> 
-          </Nav>
-        </Navbar.Collapse>
+        <Nav className="me-auto">
+          <Nav.Link href="/Home">Smart Home</Nav.Link>
+        </Nav>
+        <Nav className="ml-auto">
+          <Nav.Link href="/user" className="username-nav-link">
+            {user?.username}
+          </Nav.Link>
+        </Nav>
       </Container>
     </Navbar>
+
+
+
   );
 }
 

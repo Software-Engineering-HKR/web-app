@@ -14,18 +14,6 @@ import { SensorContext } from '../context/GlobalState';
 import { useNavigate } from 'react-router-dom';
 
 
-const lightIcon = require('../assets/light-icon.png');
-const homeIcon = require('../assets/home-icon.png');
-const motionIcon = require('../assets/motion.png');
-const gasIcon = require('../assets/gas.png');
-const moistureIcon = require('../assets/moisture.png');
-const steamIcon = require('../assets/steam.png');
-const lightIco = require('../assets/light.png');
-
-
-
-
-
 export const Home = () => {
 
   const navigate = useNavigate();
@@ -40,7 +28,8 @@ export const Home = () => {
       <Header />
       <Container className="mt-3">
         <Row>
-          <Col sm={6} md={6} lg={7}>
+          <Col sm={6} md={6} lg={6}>
+          <h2>Devices</h2>
             <Row>
               <Col sm={12} lg={6} >
                 <Toggle label={"White LED"} device="led" />
@@ -62,31 +51,33 @@ export const Home = () => {
             </Row>
           </Col>
 
-          <Col sm={6} md={6} lg={5}>
+          <Col sm={6} md={6} lg={6}>
+          <h2>Sensors</h2>
             <Row>
-              <Col sm={12} md={6}>
-                <Sensor label={"Motion Sensor"} device="motion" icon={motionIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Motion"} device="motion" />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Gas Sensor"} device="gas" icon={gasIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Gas"} device="gas" />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Moisture Sensor"} device="moisture" icon={moistureIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Moisture"} device="moisture" />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Light Sensor"} device="light" icon={lightIco} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Light"} device="light" />
               </Col>
-              <Col sm={12} md={6}>
-                <Sensor label={"Steam Sensor"} device="steam" icon={steamIcon} />
+              <Col sm={12} lg={6}>
+                <Sensor label={"Steam"} device="steam" />
               </Col>
             </Row>
           </Col>
 
-          <Row id='Settings' style={{ marginTop: 'auto', marginBottom: '25rem' }}>
-            <Col sm={12} md={7}>
+          <Row style={{ marginTop: '1rem'}}>
+            <Col sm={12} lg={6}>
+              <h2>LCD Display</h2>
               <Lcd label={"LCD"} />
             </Col>
-        </Row>
+          </Row>
 
         </Row>
       </Container>
