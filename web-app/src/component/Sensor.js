@@ -25,19 +25,34 @@ const Sensor = ({ label, device, disabled, icon }) => {
     deviceInital()
   }, [device, sensors])
 
+  const getValueStatus = (device, sensorValue) => {
+    switch (device) {
+      case "motion":
+        return sensorValue === 1 ? 'on' : 'off';
+      case "gas":
+        return sensorValue >= 100 ? 'on' : 'off';
+      case "moisture":
+        return sensorValue >= 1 ? 'moist' : 'dry';
+      case "light":
+        return sensorValue >= 300 ? 'on' : 'off';
+      case "steam":
+        return sensorValue >= 100 ? 'on' : 'off';
+      default:
+        return 'NaN';
+    }
+  }
+
+
   return (
     <div>
-      <Card className={`mb-2 text-center border-1 shadow sensor ${device === "motion" && sensorValue === 1 ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
+      <Card className={`mb-2 text-center border-1 shadow sensor ${getValueStatus(device, sensorValue) === 'on' || getValueStatus(device, sensorValue) === 'moist' ? 'on' : ''} ${disabled ? 'disabled' : ''}`}>
         <Card.Body>
           <Row className="align-items-center justify-content-between w-100 mx-0">
             <Col xs={2} md={4} xl={4}>
               <SmartIcons extraClasses="extra-large-icon" device={device} />
             </Col>
             <Col xs={10} md={8} xl={8}>
-              {device === "motion" ?
-                <Card.Title className="sensor-value">{sensorValue === 1 ? 'ON' : 'OFF'}</Card.Title>
-                : <Card.Title className="sensor-value">{sensorValue ? `${sensorValue}` : '0'}</Card.Title>
-              }
+              <Card.Title className="sensor-value">{getValueStatus(device, sensorValue)}</Card.Title>
               <Card.Text className="sensor-lable">{label}</Card.Text>
             </Col>
           </Row>
